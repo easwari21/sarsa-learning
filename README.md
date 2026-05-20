@@ -90,19 +90,19 @@ def sarsa(env,
 ## OUTPUT:
 
 Optimal policy, Optimal value function 
-![alt text](image.png)
-![alt text](image-1.png)
+![alt text](output/image.png)
+![alt text](output/image-1.png)
 
 Success rate for the optimal policy
-![alt text](image-2.png)
+![alt text](output/image-2.png)
 
 Plot of state value functions of Monte Carlo method
 
-![alt text](image-3.png)
+![alt text](output/image-3.png)
 
 Plot of state value functions of SARSA learning
 
-![alt text](image-4.png)
+![alt text](output/image-4.png)
 
 ## RESULT:
 
