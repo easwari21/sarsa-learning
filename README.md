@@ -61,23 +61,17 @@ def sarsa(env,
         else np.random.randint(len(Q[state]))
 
     for e in tqdm(range(n_episodes), leave=False):
-        state = env.reset()
+        state ,done= env.reset(),False
         action = select_action(state, Q, epsilons[e])
 
-        for t in count():
+       while not done:
             next_state, reward, done, _ = env.step(action)
             next_action = select_action(next_state, Q, epsilons[e])
 
-            # SARSA Update
             Q[state][action] = Q[state][action] + alphas[e] * \
                                (reward + gamma * Q[next_state][next_action] * (not done) - Q[state][action])
 
             state, action = next_state, next_action
-
-            if done:
-                break
-            if t >= max_steps - 1:
-                break
 
         Q_track[e] = Q
         pi_track.append(np.argmax(Q, axis=1))
